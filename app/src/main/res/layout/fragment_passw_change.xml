@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/forgot_passw"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.auth.recovery.ChangePasswordFragment">
+
+    <TextView
+        android:id="@+id/textViewWriteCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:text="@string/tv_write_new_passw"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/hint_password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWriteCode" />
+
+    <EditText
+        android:id="@+id/editTextConfirmPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/hint_confirm_password"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+
+    <ImageView
+        android:id="@+id/imageViewShowPassw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/cont_desc_show_passw"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextPassword"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
+        app:layout_constraintTop_toTopOf="@+id/editTextPassword"
+        app:srcCompat="@drawable/ic_remove_red_eye" />
+
+    <ImageView
+        android:id="@+id/imageViewShowPasswConf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/cont_desc_show_passw"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextConfirmPassword"
+        app:layout_constraintEnd_toEndOf="@+id/editTextConfirmPassword"
+        app:layout_constraintTop_toTopOf="@+id/editTextConfirmPassword"
+        app:srcCompat="@drawable/ic_remove_red_eye" />
+
+    <Button
+        android:id="@+id/buttonChangePassw"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="165dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/btn_change_passw"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWriteCode" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="165dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewWriteCode" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

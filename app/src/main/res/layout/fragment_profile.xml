@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.profile.ProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        tools:context=".ui.dashboard.profile.ProfileFragment">
+
+        <!--
+        The Android Studio 4.1 new-project wizard, for many of its templates, has the project use the
+        Material Components for Android library. And, it sets up the default theme to be based on
+        Theme.MaterialComponents.DayNight.DarkActionBar.
+
+        A side effect of this is that any <Button> elements in a layout get turned into MaterialButton
+        widgets, not regular Button widgets. MaterialButton ignores android:background.
+
+        If all you want to do is to change the color, use android:backgroundTint or change the
+        colorPrimary attribute in the theme.
+
+        If you want a button that has a custom background, and your theme is set up to use
+        Theme.MaterialComponents, you could switch the XML element in the layout to be
+        <android.widget.Button> instead of <Button>. This should cause the Material Components for
+        Android to ignore that element, and you can manipulate this button normally with respect to XML
+        attributes.
+        -->
+
+        <android.widget.Button
+            android:id="@+id/buttonUnsubAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_comment_button"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:text="@string/btn_unsub_all"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBarUnsub"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewTouchPic"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="@string/tv_touch_picture"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonUnsubAll" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageViewAvatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/cont_desc_user"
+            android:src="@drawable/ic_android_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTouchPic" />
+
+        <ProgressBar
+            android:id="@+id/progressBarAvatar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/imageViewAvatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageViewAvatar" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="64dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageViewAvatar" />
+
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:ems="10"
+            android:hint="@string/hint_username"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider1" />
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/hint_name"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextUsername" />
+
+        <EditText
+            android:id="@+id/editTextSurname"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/hint_surname"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextName" />
+
+        <CheckBox
+            android:id="@+id/checkBoxStudent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/cb_student"
+            app:layout_constraintStart_toStartOf="@+id/editTextSurname"
+            app:layout_constraintTop_toBottomOf="@+id/editTextSurname" />
+
+        <Spinner
+            android:id="@+id/spinnerProv"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:spinnerMode="dropdown"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxStudent" />
+
+        <Spinner
+            android:id="@+id/spinnerLoc"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:spinnerMode="dropdown"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerProv" />
+
+        <Spinner
+            android:id="@+id/spinnerCent"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:spinnerMode="dropdown"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerLoc" />
+
+        <ProgressBar
+            android:id="@+id/progressBarData"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCent" />
+
+        <Button
+            android:id="@+id/buttonSaveProfileData"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/btn_update_data"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinnerCent" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="64dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSaveProfileData" />
+
+        <EditText
+            android:id="@+id/editTextCurrentPassword"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:ems="10"
+            android:hint="@string/hint_current_password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+        <ImageView
+            android:id="@+id/imageViewShowCurrentPassw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/cont_desc_show_passw"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextCurrentPassword"
+            app:layout_constraintEnd_toEndOf="@+id/editTextCurrentPassword"
+            app:layout_constraintTop_toTopOf="@+id/editTextCurrentPassword"
+            app:srcCompat="@drawable/ic_remove_red_eye" />
+
+        <EditText
+            android:id="@+id/editTextNewPassword"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/hint_new_password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextCurrentPassword" />
+
+        <ImageView
+            android:id="@+id/imageViewShowNewPassw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/cont_desc_show_passw"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextNewPassword"
+            app:layout_constraintEnd_toEndOf="@+id/editTextNewPassword"
+            app:layout_constraintTop_toTopOf="@+id/editTextNewPassword"
+            app:srcCompat="@drawable/ic_remove_red_eye" />
+
+        <EditText
+            android:id="@+id/editTextConfirmPassword"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/hint_confirm_password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextNewPassword" />
+
+        <ImageView
+            android:id="@+id/imageViewShowPasswConf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/cont_desc_show_passw"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextConfirmPassword"
+            app:layout_constraintEnd_toEndOf="@+id/editTextConfirmPassword"
+            app:layout_constraintTop_toTopOf="@+id/editTextConfirmPassword"
+            app:srcCompat="@drawable/ic_remove_red_eye" />
+
+        <Button
+            android:id="@+id/buttonSavePassword"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/colorAccent"
+            android:text="@string/btn_update_password"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword" />
+
+        <ProgressBar
+            android:id="@+id/progressBarPassw"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_marginTop="64dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSavePassword" />
+
+        <TextView
+            android:id="@+id/textViewChangeEmail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="@string/tv_change_email"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/divider3" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:hint="@string/hint_email"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewChangeEmail" />
+
+        <Button
+            android:id="@+id/buttonSaveEmail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:text="@string/btn_update_email"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+        <ProgressBar
+            android:id="@+id/progressBarEmail"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+        <Button
+            android:id="@+id/buttonDeleteAccount"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:text="@string/btn_delete_account"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSaveEmail" />
+
+        <ProgressBar
+            android:id="@+id/progressBarDelete"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonSaveEmail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

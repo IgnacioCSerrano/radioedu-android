@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "103788556495",
+    "project_id": "radioeduandroid",
+    "storage_bucket": "radioeduandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103788556495:android:9a9f85a18b70f315ee07ba",
+        "android_client_info": {
+          "package_name": "dam.iesaugustobriga.radioeduandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103788556495-dlqisul02fu8opg965053l7lobqh8vl5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGfE2NqRk_Y8dChdH-j9Idcx2mAHqkN08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103788556495-dlqisul02fu8opg965053l7lobqh8vl5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

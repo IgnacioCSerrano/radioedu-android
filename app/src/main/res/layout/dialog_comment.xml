@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageViewClose"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/cont_desc_close"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close"
+        app:tint="@color/black" />
+
+    <!--
+    The Android Studio 4.1 new-project wizard, for many of its templates, has the project use the
+    Material Components for Android library. And, it sets up the default theme to be based on
+    Theme.MaterialComponents.DayNight.DarkActionBar.
+
+    A side effect of this is that any <Button> elements in a layout get turned into MaterialButton
+    widgets, not regular Button widgets. MaterialButton ignores android:background.
+
+    If all you want to do is to change the color, use android:backgroundTint or change the
+    colorPrimary attribute in the theme.
+
+    If you want a button that has a custom background, and your theme is set up to use
+    Theme.MaterialComponents, you could switch the XML element in the layout to be
+    <android.widget.Button> instead of <Button>. This should cause the Material Components for
+    Android to ignore that element, and you can manipulate this button normally with respect to XML
+    attributes.
+    -->
+
+    <android.widget.Button
+        android:id="@+id/buttonAddComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_comment_button"
+        android:backgroundTintMode="screen"
+        android:text="@string/btn_send"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewClose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewClose" />
+
+    <android.widget.Button
+        android:id="@+id/buttonEditComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/bg_comment_button"
+        android:text="@string/btn_edit"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewClose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewClose" />
+
+    <ImageView
+        android:id="@+id/imageViewAvatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/cont_desc_user"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewClose"
+        app:layout_constraintStart_toStartOf="@+id/imageViewClose"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewClose"
+        app:srcCompat="@drawable/ic_android_black" />
+
+    <EditText
+        android:id="@+id/editTextMensaje"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/hint_write_comment"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:textColor="@android:color/black"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageViewAvatar"
+        app:layout_constraintTop_toTopOf="@+id/imageViewAvatar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
